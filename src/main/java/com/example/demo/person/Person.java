@@ -1,9 +1,15 @@
 package com.example.demo.person;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Person {
 
+    @Id
+//    @SequenceGenerator(name = "person_sequence")
     private Long person_id;
     private String name;
     private String email;
