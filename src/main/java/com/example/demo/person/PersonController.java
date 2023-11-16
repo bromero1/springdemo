@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/person")
@@ -18,10 +19,12 @@ public class PersonController {
         this.personService = personService;
     }
 
+
     @GetMapping
     public List<Person> getPersons() {
-       // personService.
-        return List.of(
-                new Person(1L, "Bryan", "b@b.com", LocalDate.of(1994, 03, 27), 29)
-        );
-    }}
+       return personService.getAllPersons();
+    }
+
+
+
+}

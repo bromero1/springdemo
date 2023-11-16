@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Person {
 
     @Id
-//    @SequenceGenerator(name = "person_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long person_id;
     private String name;
     private String email;
