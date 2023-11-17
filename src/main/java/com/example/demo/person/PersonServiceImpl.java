@@ -4,9 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class PersonServiceImpl implements PersonService{
+public class PersonServiceImpl implements PersonService {
 
     PersonRepository personRepository;
 
@@ -18,14 +19,16 @@ public class PersonServiceImpl implements PersonService{
         this.personRepository = personRepository;
     }
 
-//    @Override
+    //    @Override
     public List<Person> getAllPersons() {
         return personRepository.findAll();
     }
 
-//    public List<Person> findPersonById(Long id){
-//        return personRepository.findAllById();
-//    }
+    public Optional<Person> findPersonById(Long id) {
+        return personRepository.findById(id);
+    }
 
-
+    public Person createPerson(Person p){
+        return personRepository.save(p);
+    }
 }

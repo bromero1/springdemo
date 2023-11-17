@@ -7,8 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 //@Service
 public interface PersonService {
     List<Person> getAllPersons();
+    Optional<Person> findPersonById(Long id);
+
+    public Person createPerson(Person p);
 }
