@@ -39,13 +39,10 @@ public class PersonController {
      * false value.. ?
      */
     @PostMapping
-    public boolean postPerson(@RequestBody Person p){
+    public Person postPerson(@RequestBody Person p){
         Person res =  personService.createPerson(p);
-        if(res.equals(p)) return true;
-        return false;
+        if(res.equals(p)) return res;
+        return res;
 
     }
-
-
-
 }
