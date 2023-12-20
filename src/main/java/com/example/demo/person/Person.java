@@ -3,6 +3,7 @@ package com.example.demo.person;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -12,6 +13,8 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long person_id;
     private String name;
+
+    @Column(unique=true)
     private String email;
     private LocalDate dob;
     private Integer age;
@@ -73,5 +76,29 @@ public class Person {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(person_id, person.person_id) && Objects.equals(name, person.name) && Objects.equals(email, person.email) && Objects.equals(dob, person.dob) && Objects.equals(age, person.age);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(person_id, name, email, dob, age);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "person_id=" + person_id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", dob=" + dob +
+                ", age=" + age +
+                '}';
     }
 }

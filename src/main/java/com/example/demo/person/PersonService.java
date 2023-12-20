@@ -1,11 +1,7 @@
 package com.example.demo.person;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.ResponseEntity;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,5 +10,7 @@ public interface PersonService {
     List<Person> getAllPersons();
     Optional<Person> findPersonById(Long id);
 
-    public Person createPerson(Person p);
+    public Optional<Person> createPerson(Person p);
+
+    public boolean findPersonByEmail(String email);
 }
