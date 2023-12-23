@@ -1,21 +1,19 @@
 package com.example.demo.journal;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class JournalEntry {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long entryNumber;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "" )
 
-    public Long getId() {
-        return id;
-    }
+    private Long personId;
+    private String title;
+    private String entryText;
+
 }

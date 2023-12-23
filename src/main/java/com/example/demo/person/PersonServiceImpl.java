@@ -31,6 +31,10 @@ public class PersonServiceImpl implements PersonService {
     }
 
     public Optional<Person> findPersonById(Long id) {
+
+//        return repository.findById(id)
+//                .orElseThrow(() -> new EmployeeNotFoundException(id));
+//
         return personRepository.findById(id);
     }
 
