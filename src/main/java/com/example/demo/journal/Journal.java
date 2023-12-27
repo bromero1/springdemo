@@ -11,19 +11,18 @@ public class Journal {
     @GeneratedValue
     private Long journal_id;
 
-//    @OneToOne(cascade = CascadeType.ALL)
     private Long userId;
 
-    @OneToMany(mappedBy = "userId")
+    @OneToMany(mappedBy = "journal", cascade = CascadeType.ALL)
     private Set<JournalEntry> entries = new HashSet<>();
     private String title;
     private Integer entryCount;
 
     public void setId(Long id) {
-        this.id = id;
+        this.journal_id = id;
     }
     public Long getId() {
-        return id;
+        return journal_id;
     }
 }
 

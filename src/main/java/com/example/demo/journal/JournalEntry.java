@@ -10,9 +10,10 @@ public class JournalEntry {
     private Long entryNumber;
 
     @ManyToOne
-    @JoinColumn(name = "" )
+    @JoinColumn(name = "journal_id")
+    private Journal journal;
 
-    private Long personId;
+     private Long personId;
     private String title;
     private String entryText;
 
