@@ -1,7 +1,9 @@
+import JournalEntry from "./pages/JournalEntry";
 
 function App() {
   return (
-    <div>Journald app </div>
+    <JournalEntry /> 
+
   );
 }
 
