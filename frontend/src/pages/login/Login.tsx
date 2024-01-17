@@ -3,7 +3,7 @@ import axios from "axios";
 export default function Login() {
 
     const handleGoogleLogin = async () => {
-        var endpoint = "/auth/google";
+        var endpoint = "localhost:8080/auth/google";
         try {
             const response = await axios.get(endpoint);
             window.location.href = response.data.redirectUrl; 
